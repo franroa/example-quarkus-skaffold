@@ -4,7 +4,7 @@ metadata:
   name: skaffold-quarkus-helloworld
 build:
   artifacts:
-  - image: rhdevelopers/skaffold-quarkus-helloworld
+  - image: franroa/skaffold-quarkus-helloworld
   local:
     push: false
 deploy:

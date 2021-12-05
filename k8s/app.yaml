@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: skaffold-quarkus-helloworld
-        image: rhdevelopers/skaffold-quarkus-helloworld
+        image: franroa/skaffold-quarkus-helloworld
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

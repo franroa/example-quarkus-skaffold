@@ -1,25 +1,27 @@
-apiVersion: skaffold/v1
+apiVersion: skaffold/v2beta4
 kind: Config
 metadata:
   name: skaffold-quarkus-helloworld
 build:
   artifacts:
-  - image: rhdevelopers/skaffold-quarkus-helloworld
+  - image: franroa/skaffold-quarkus-helloworld #TODO change this to remove the registry and set it as an argument in --default-registry
     context: .
-    sync:
-      manual:
-       - src: 'src/**/*.java'
-         dest: /usr/src/app/src
-         strip: 'src/'
-       - src: 'pom.xml'
-         dest: /usr/src/app
-    custom:
-      # for windows use build.cmd
-      #buildCommand: .\build.cmd
-      buildCommand: ./build.sh
-      dependencies:
-        dockerfile: 
-          path: Dockerfile.dev
+    docker:
+      dockerfile: Dockerfile.dev
+#    sync:
+#      manual:
+#       - src: 'src/**/*.java'
+#         dest: /usr/src/app/src
+#         strip: 'src/'
+#       - src: 'pom.xml'
+#         dest: /usr/src/app
+#    custom:
+#      # for windows use build.cmd
+#      #buildCommand: .\build.cmd
+#      buildCommand: ./build.sh
+#      dependencies:
+#        dockerfile:
+#          path: Dockerfile.dev
   local:
     push: false
 deploy:
